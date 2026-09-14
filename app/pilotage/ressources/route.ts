@@ -1,0 +1,1 @@
+import {isAdmin} from "@/lib/server";import {playbook} from "@/lib/playbook";export async function GET(){if(!await isAdmin())return new Response("Accès réservé",{status:403});return new Response(playbook,{headers:{"Content-Type":"text/html; charset=utf-8","Cache-Control":"private, no-store"}})}

@@ -1,0 +1,1 @@
+import {db,json,isAdmin} from "@/lib/server";export async function GET(r:Request){if(!await isAdmin())return json({error:"Accès refusé"},403);try{return json({events:(await db().prepare("SELECT * FROM history WHERE lead_id=? ORDER BY at DESC LIMIT 100").bind(new URL(r.url).searchParams.get("id")||"").all()).results});}catch{return json({error:"Historique indisponible"},503);}}
