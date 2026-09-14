@@ -1,0 +1,1 @@
+import supports from "@/lib/supports.json";import {notFound} from "next/navigation";import {SupportPreview} from "./preview";export default async function Page({params}:{params:Promise<{slug:string}>}){const {slug}=await params;const support=supports.find(s=>s.slug===slug);if(!support)notFound();return <SupportPreview support={support}/> }

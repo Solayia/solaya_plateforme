@@ -1,0 +1,1 @@
+export default function Page(){return <main className="article-page"><h1>Votre demande</h1><p>La confirmation et la référence s’affichent dans le formulaire uniquement après l’enregistrement serveur.</p><a href="/etude">Retour au formulaire</a></main>}
