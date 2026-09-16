@@ -1,0 +1,3 @@
+#!/bin/sh
+# Replace the key path with your locally stored dedicated SSH private key.
+exec ssh -i /path/to/solaya_vps -o IdentitiesOnly=yes -o ExitOnForwardFailure=yes -N -L 127.0.0.1:3100:127.0.0.1:3100 root@187.124.54.213

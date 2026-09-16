@@ -1,3 +1,12 @@
+# Solaya Collection — préproduction Docker
+
+Cette branche `preprod-vps` contient la version autonome pour le VPS Hostinger.
+Voir [le guide de déploiement](deploy/README.md) pour le tunnel SSH, les accès, la base persistante et les sauvegardes.
+
+La branche `main` conserve la version originale Sites. La documentation historique ci-dessous décrit cette version et ne constitue pas la procédure VPS.
+
+---
+
 # vinext-starter
 
 A clean full-stack starter running on [vinext](https://github.com/cloudflare/vinext), with optional Cloudflare D1 and Drizzle support.

@@ -1,0 +1,32 @@
+name: solaya-preprod
+services:
+  web:
+    build: .
+    image: solaya-preprod:${SOLAYA_VERSION:-local}
+    restart: unless-stopped
+    init: true
+    ports:
+      - "127.0.0.1:3100:3000"
+    environment:
+      APP_ORIGIN: http://localhost:3100
+      PREPROD_PASSWORD_SHA256: ${PREPROD_PASSWORD_SHA256:?Set the preproduction password hash}
+      PREPROD_ADMIN_EMAIL: kevindolie1@gmail.com
+    volumes:
+      - preprod-data:/data
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    logging:
+      driver: json-file
+      options:
+        max-size: 10m
+        max-file: "3"
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:3000').then(r=>process.exit(r.status===401?0:1)).catch(()=>process.exit(1))"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 30s
+volumes:
+  preprod-data:

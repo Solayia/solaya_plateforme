@@ -1,0 +1,1 @@
+export function GET(){return new Response("Pour quitter la préproduction, fermez la fenêtre privée du navigateur et le tunnel SSH.",{headers:{"Content-Type":"text/plain; charset=utf-8","Cache-Control":"no-store"}});}
